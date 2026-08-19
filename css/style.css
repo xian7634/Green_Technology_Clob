@@ -28,90 +28,120 @@ a {
 
 
 /* =========================NAVBAR========================= */
+/* ================================
+   NAVBAR
+   ================================ */
 
 .navbar {
     background-color: #003b2b !important;
     width: 100%;
-    min-height: 72px;
-    padding: 0;
+    height: 72px;
+    padding: 0 !important;
 }
 
-/* Main container */
+/* Main navbar container */
 .navbar .container {
-    max-width: 1140px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+    width: 100%;
+    max-width: 980px !important;
+    margin: 0 auto;
+    padding: 0 !important;
 
-
-/* ===== LOGO ===== */
-
-.navbar-brand {
     display: flex;
     align-items: center;
-    gap: 8px;
+}
 
-    color: white !important;
-    font-size: 20px;
+
+/* ================================
+   LOGO
+   ================================ */
+
+.navbar-brand {
+    display: flex !important;
+    align-items: center;
+
+    color: #ffffff !important;
+    font-size: 18px !important;
     font-weight: 700 !important;
 
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    white-space: nowrap;
 }
 
 .navbar-brand .bi-leaf-fill {
-    font-size: 22px;
+    font-size: 20px;
+    margin-right: 7px;
 }
 
 
-/* ===== NAVIGATION ===== */
+/* ================================
+   NAVIGATION
+   ================================ */
+
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+}
 
 .navbar-nav {
     display: flex;
     align-items: center;
-    gap: 24px;
+
+    margin-left: auto !important;
+
+    gap: 20px;
 }
 
 .navbar-nav .nav-link {
-    color: white !important;
+    color: #ffffff !important;
 
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 13px !important;
+    font-weight: 500 !important;
 
     padding: 8px 0 !important;
+    margin: 0 !important;
+
     white-space: nowrap;
 }
 
 
 /* Hover */
-
 .navbar-nav .nav-link:hover {
     color: #8fd694 !important;
 }
 
 
 /* Active */
-
 .navbar-nav .nav-link.active {
-    color: white !important;
+    color: #ffffff !important;
 }
 
 
-/* ===== MOBILE ===== */
+/* ================================
+   MOBILE
+   ================================ */
 
 @media (max-width: 991px) {
 
+    .navbar {
+        height: auto;
+        min-height: 72px;
+    }
+
+    .navbar .container {
+        padding: 0 20px !important;
+    }
+
     .navbar-nav {
         gap: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        margin-top: 10px !important;
     }
 
     .navbar-nav .nav-link {
         padding: 10px 0 !important;
     }
-
 }
-
 /* =========================HERO========================= */
 
 .hero {
