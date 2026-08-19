@@ -1,0 +1,181 @@
+/* =========================================================
+   UCCD2323 Front-End Web Development Assignment
+   Green Technology Club - Custom Stylesheet (css/style.css)
+   ========================================================= */
+
+/* --- General Body & Global Styles --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333333;
+  background-color: #f8faf9;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(25, 135, 84, 0.03),
+    rgba(25, 135, 84, 0.03) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  background-attachment: fixed;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* --- Hero Banner Sections --- */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+              url('images/Renewable-energy-background') center/cover no-repeat;
+  color: #ffffff;
+  padding: 90px 0;
+  border-bottom: 4px solid #198754;
+}
+
+.hero-ev {
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+              url('images/EV-background.png') center/cover no-repeat;
+  color: #ffffff;
+  padding: 90px 0;
+  border-bottom: 4px solid #198754;
+}
+
+/* --- Card Components & Interactive Elements --- */
+.energy-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 12px;
+}
+
+.energy-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.benefit-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* --- Live Environmental Conditions Widget --- */
+#api-data-container .p-3 {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#api-data-container .p-3:hover {
+  background-color: #ffffff !important;
+  transform: translateY(-3px);
+}
+
+/* --- Navigation & Links --- */
+.navbar {
+    background: rgba(4, 38, 24, 0.94) !important;
+    backdrop-filter: blur(10px);                  
+    -webkit-backdrop-filter: blur(10px);          
+    padding: 17px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    position: sticky;                            
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+}
+
+.navbar-brand i {
+    color: #8ce89a !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin-left: 14px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #8ce89a !important;
+}
+
+/* --- Table Styling --- */
+.table-hover tbody tr:hover {
+  background-color: rgba(4, 38, 24, 0.94);
+}
+
+/* --- Footer & Footnote Styles --- */
+footer {
+  margin-top: auto;
+}
+
+.card hr {
+  border-top: 1px solid #dee2e6;
+}
+
+/* Clickable Card Hover Animations */
+.technology-card-link {
+  display: block;
+  height: 100%;
+}
+
+.technology-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.technology-card-link:hover .technology-card {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Force Bootstrap Icons font family */
+i.bi, .bi, [class^="bi-"], [class*=" bi-"] {
+    font-family: "bootstrap-icons" !important;
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* Floating Social Plugin (FB & IG Only) */
+.social-floating-bar {
+    position: fixed;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.social-floating-bar .social-icon {
+    width: 44px;
+    height: 44px;
+    background-color: #042618;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-floating-bar .social-icon:hover {
+    background-color: #4cd97b;
+    color: #042618;
+    transform: scale(1.1);
+}
