@@ -28,10 +28,6 @@ a {
 
 
 /* =========================NAVBAR========================= */
-/* ================================
-   NAVBAR
-   ================================ */
-
 .navbar {
     background-color: #003b2b !important;
     width: 100%;
@@ -39,7 +35,7 @@ a {
     padding: 0 !important;
 }
 
-/* Main navbar container */
+/* Main container */
 .navbar .container {
     width: 100%;
     max-width: 980px !important;
@@ -51,9 +47,7 @@ a {
 }
 
 
-/* ================================
-   LOGO
-   ================================ */
+/* ================LOGO================*/
 
 .navbar-brand {
     display: flex !important;
@@ -75,9 +69,7 @@ a {
 }
 
 
-/* ================================
-   NAVIGATION
-   ================================ */
+/* ================NAVIGATION================ */
 
 .navbar-collapse {
     display: flex;
@@ -90,7 +82,7 @@ a {
 
     margin-left: auto !important;
 
-    gap: 20px;
+    gap: 22px;
 }
 
 .navbar-nav .nav-link {
@@ -118,9 +110,7 @@ a {
 }
 
 
-/* ================================
-   MOBILE
-   ================================ */
+/* ================MOBILE================ */
 
 @media (max-width: 991px) {
 
@@ -141,7 +131,9 @@ a {
     .navbar-nav .nav-link {
         padding: 10px 0 !important;
     }
+
 }
+
 /* =========================HERO========================= */
 
 .hero {
