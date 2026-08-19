@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electric Vehicles</title>
+
+  <!-- 1. External CDNs (MUST start with https://) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- 2. Your Local CSS (NO leading slash / before css/) -->
+  <link rel="stylesheet" href="css/style.css">
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self' https: http:;
+  script-src 'self' 'unsafe-inline' https://code.jquery.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://connect.facebook.net https://www.instagram.com;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+  font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+  img-src 'self' data: https: http:;
+  child-src 'self' https://www.facebook.com https://www.instagram.com https://www.youtube.com https://www.youtube-nocookie.com;
+  frame-src 'self' https://www.facebook.com https://www.instagram.com https://www.youtube.com https://www.youtube-nocookie.com;
+  connect-src 'self' https://api.open-meteo.com https://cdn.jsdelivr.net ws://127.0.0.1:* http://127.0.0.1:*;
+">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero-section {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                  url('images/Renewable-energy-background.png') center/cover;
+      color: #ffffff;
+      padding: 80px 0;
+    }
+    .energy-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 12px;
+    }
+    .energy-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .api-badge {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- Social Media SDKs -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"><i class="fa-solid fa-leaf me-2"></i>Green Tech Club</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="renewable_energy.html">Renewable Energy</a></li>
+          <li class="nav-item"><a class="nav-link" href="electric_vehicle.html">Electric Vehicles</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart_cities.html">Smart Cities</a></li>
+          <li class="nav-item"><a class="nav-link" href="sustainable_tech.html">Sustainable Tech</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Renewable Energy Technologies</h1>
+      <p class="lead">Powering the planet with zero-emission, infinite clean resources.</p>
+    </div>
+  </header>
+
+  <!-- Floating Trigger Button (Bottom Right) -->
+<button class="btn btn-success rounded-circle shadow-lg position-fixed bottom-0 end-0 m-4 p-3 z-3" 
+        type="button" 
+        data-bs-toggle="offcanvas" 
+        data-bs-target="#envDataSidebar" 
+        aria-controls="envDataSidebar" 
+        style="width: 60px; height: 60px;" 
+        title="Live Environmental Conditions">
+  <i class="fa-solid fa-leaf fa-xl"></i>
+</button>
+
+<!-- Offcanvas Sidebar Component -->
+<div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="envDataSidebar" aria-labelledby="envDataSidebarLabel">
+  <div class="offcanvas-header bg-success text-white">
+    <h5 class="offcanvas-title fw-bold" id="envDataSidebarLabel">
+      <i class="fa-solid fa-cloud-sun-rain me-2"></i>Live Environmental Status
+    </h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  
+  <div class="offcanvas-body p-4 bg-light">
+    <p class="text-muted small mb-4">
+      Real-time environmental data fetched via Open-Meteo RESTful API for <strong>Kuala Lumpur, Malaysia</strong>.
+    </p>
+
+    <!-- API Loading Indicator -->
+    <div id="api-loader" class="text-center py-4">
+      <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="text-muted small mt-2 mb-0">Fetching live API data...</p>
+    </div>
+
+    <!-- Container where jQuery injects API Data Vertically in the Sidebar -->
+    <div id="api-data-container" class="d-flex flex-column gap-3" style="display: none;"></div>
+  </div>
+</div>
+
+  <!-- Advantages of Renewable Energy -->
+  <section class="container my-5 py-4 bg-light rounded-4 shadow-sm">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-dark">Advantages of Renewable Energy</h2>
+      <p class="text-muted">Key systemic benefits delivered by transitioning to clean, sustainable energy sources.</p>
+    </div>
+    
+    <div class="row g-4 px-md-3">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <div class="card-body">
+            <i class="fa-solid fa-leaf text-success fs-1 mb-3"></i>
+            <h5 class="fw-bold text-dark mb-2">Zero Greenhouse Emissions</h5>
+            <p class="text-muted small mb-0">Replaces fossil fuel combustion with clean power generation, drastically lowering global carbon footprints and combatting climate change.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <div class="card-body">
+            <i class="fa-solid fa-infinity text-success fs-1 mb-3"></i>
+            <h5 class="fw-bold text-dark mb-2">Inexhaustible Power Supply</h5>
+            <p class="text-muted small mb-0">Harnesses naturally recurring resources—sunlight, wind, water, and organic matter—that replenish continuously without risk of depletion.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <div class="card-body">
+            <i class="fa-solid fa-bolt text-success fs-1 mb-3"></i>
+            <h5 class="fw-bold text-dark mb-2">Energy Security & Resilience</h5>
+            <p class="text-muted small mb-0">Reduces reliance on imported fossil fuels by producing localized clean power, creating a resilient, decentralized power grid.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. Solar Energy -->
+  <section class="container my-5">
+    <h2 class="text-center fw-bold mb-5 text-dark">Core Renewable Energy Technologies</h2>
+
+    <div class="row align-items-center mb-5 g-4">
+      <div class="col-md-5">
+        <img src="images/solar-panel.png" alt="Solar Photovoltaic Systems" class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover" style="height: 280px;">
+      </div>
+      <div class="col-md-7">
+        <h3 class="fw-bold text-success mb-3">Solar Photovoltaic & Thermal Systems</h3>
+        <ul class="text-muted lh-lg">
+          <li>Solar photovoltaic (PV) panels absorb solar radiation and convert sunlight directly into Direct Current (DC) electricity through semiconductor materials.</li>
+          <li>Rooftop solar installations empower residential households and businesses to generate clean energy on-site, drastically lowering dependency on fossil fuel utility grids.</li>
+          <li>Solar energy systems operate with zero greenhouse gas output, offering a reliable and continuous power source for electric vehicle charging stations and localized smart grids.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 1. Wind Energy -->
+    <div class="row align-items-center mb-5 g-4 flex-md-row-reverse">
+      <div class="col-md-5">
+        <img src="images/wind-energy.png" alt="Wind Energy Turbines" class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover" style="height: 280px;">
+      </div>
+      <div class="col-md-7">
+        <h3 class="fw-bold text-success mb-3">Wind Energy Generation</h3>
+        <ul class="text-muted lh-lg">
+          <li>Large-scale wind turbines capture kinetic air dynamics, using aerodynamic rotor blades to spin generators and yield high-volume electricity.</li>
+          <li>Offshore and onshore wind farms generate bulk power during both day and night, offering high efficiency during high-wind seasonal periods.</li>
+          <li>Advanced smart turbine systems adjust blade pitch automatically according to real-time wind speeds to optimize power yield and dynamic grid distribution.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 1. Hydro Energy -->
+    <div class="row align-items-center mb-5 g-4">
+      <div class="col-md-5">
+        <img src="images/hydro-energy.png" alt="Hydroelectric Power Facility" class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover" style="height: 280px;">
+      </div>
+      <div class="col-md-7">
+        <h3 class="fw-bold text-success mb-3">Hydroelectric Power Generation</h3>
+        <ul class="text-muted lh-lg">
+          <li>Hydropower facilities utilize the natural gravitational force of flowing or falling water to drive high-capacity hydraulic turbines cleanly.</li>
+          <li>Pumped-storage hydroelectric stations store energy by moving water between reservoirs, acting as large-scale green energy batteries during peak demand hours.</li>
+          <li>Hydro generation provides consistent baseload electricity without consuming water resources or generating air pollutants during operation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. Biomass Energy -->
+    <div class="row align-items-center mb-5 g-4 flex-md-row-reverse">
+      <div class="col-md-5">
+        <img src="images/biomass-energy.png" alt="Biomass & Bioenergy Systems" class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover" style="height: 280px;">
+      </div>
+      <div class="col-md-7">
+        <h3 class="fw-bold text-success mb-3">Biomass & Circular Bioenergy Systems</h3>
+        <ul class="text-muted lh-lg">
+          <li>Biomass energy converts organic agricultural residue and industrial organic waste into clean biogas and biofuels through natural biological processes.</li>
+          <li>Bioenergy provides dependable, dispatchable baseload electricity that balances weather-dependent renewable sources like solar and wind power.</li>
+          <li>By repurposing organic waste products, biomass technology prevents methane emissions from land disposal while fostering zero-waste circular economic practices.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learn More: Renewable Energy Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #f0fdf4 0%, #e6f4ea 100%); border-top: 1px solid #d1fae5; border-bottom: 1px solid #d1fae5;">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <!-- Text & Key Highlights -->
+      <div class="col-lg-6">
+        <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill fw-semibold mb-2">
+          Featured Video
+        </span>
+        <h2 class="fw-bold text-success mb-3">Renewable Energy 101</h2>
+        <p class="text-secondary lead mb-3">
+          Renewable energy is generated from sources that naturally replenish themselves and never run out, such as solar, wind, hydro, geothermal, and biomass.
+        </p>
+
+        <ul class="list-unstyled d-flex flex-column gap-3 text-secondary mb-0">
+          <li class="d-flex align-items-start">
+            <i class="fa-solid fa-leaf text-success me-3 mt-1 fs-5"></i>
+            <div>
+              <strong class="text-dark">Combats Climate Change:</strong>
+              <div class="small">Produces virtually no direct greenhouse gas emissions.</div>
+            </div>
+          </li>
+          <li class="d-flex align-items-start">
+            <i class="fa-solid fa-heart-pulse text-success me-3 mt-1 fs-5"></i>
+            <div>
+              <strong class="text-dark">Reduces Pollution:</strong>
+              <div class="small">Systems like solar and wind generate zero air pollution, improving public health.</div>
+            </div>
+          </li>
+          <li class="d-flex align-items-start">
+            <i class="fa-solid fa-chart-line text-success me-3 mt-1 fs-5"></i>
+            <div>
+              <strong class="text-dark">Stable Operating Costs:</strong>
+              <div class="small">Fueled by natural forces, operational costs remain low and predictable over time.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Embedded Video Container -->
+      <div class="col-lg-6">
+        <div class="p-2 bg-white rounded-4 shadow-lg border border-success-subtle">
+          <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/1kUE0BZtTRc" 
+              title="Renewable Energy 101 - National Geographic" 
+              allowfullscreen 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Renewable Energy Technologies Statistics -->
+  <section class="container my-5 py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-dark">Green Technologies Statistics</h2>
+      <p class="text-muted">Key performance metrics and global impact figures across renewable energy sectors.</p>
+    </div>
+
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3">
+        <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+          <p class="display-5 fw-bold text-success mb-1">0%</p>
+          <p class="fw-semibold text-dark mb-0">Operational Emissions</p>
+          <small class="text-muted">Zero direct carbon output from solar & wind</small>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+          <p class="display-5 fw-bold text-success mb-1">up to 90%</p>
+          <p class="fw-semibold text-dark mb-0">Hydropower Efficiency</p>
+          <small class="text-muted">Highest energy conversion among renewables</small>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+          <p class="display-5 fw-bold text-success mb-1">24 / 7</p>
+          <p class="fw-semibold text-dark mb-0">Baseload Power Supply</p>
+          <small class="text-muted">Dispatchable energy from hydro & biomass</small>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="p-4 bg-white border rounded-4 shadow-sm h-100">
+          <p class="display-5 fw-bold text-success mb-1">80%+ </p>
+          <p class="fw-semibold text-dark mb-0">Waste Reduction</p>
+          <small class="text-muted">Biomass circular economy waste conversion</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <div class="p-4 p-md-5 bg-dark text-white rounded-3 shadow text-center">
+      <h3 class="fw-bold mb-2">Explore More Green Tech Topics</h3>
+      <p class="text-white-50 mb-4">Discover how interconnected technologies build a cleaner, zero-emission future.</p>
+      
+      <div class="row g-3 justify-content-center">
+        <div class="col-md-4">
+          <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary text-start h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="fw-bold text-success mb-1"><i class="fa-solid fa-charging-station me-2"></i>Electric Vehicles</h5>
+              <p class="small text-white-50 mb-3">Explore zero-emission e-mobility and EV charging infrastructure.</p>
+            </div>
+            <a href="electric_vehicle.html" class="btn btn-outline-success btn-sm w-100 fw-semibold">
+              Explore EVs <i class="fa-solid fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary text-start h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="fw-bold text-success mb-1"><i class="fa-solid fa-city me-2"></i>Smart Cities</h5>
+              <p class="small text-white-50 mb-3">Learn about IoT infrastructure and sustainable urban living.</p>
+            </div>
+            <a href="smart_cities.html" class="btn btn-outline-success btn-sm w-100 fw-semibold">
+              Explore Smart Cities <i class="fa-solid fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary text-start h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="fw-bold text-success mb-1"><i class="fa-solid fa-microchip me-2"></i>Sustainable Tech</h5>
+              <p class="small text-white-50 mb-3">Discover green computing, eco-materials, and circular tech design.</p>
+            </div>
+            <a href="sustainable_tech.html" class="btn btn-outline-success btn-sm w-100 fw-semibold">
+              Explore Tech <i class="fa-solid fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Site Footer -->
+  <footer class="bg-dark text-white pt-5 pb-3 border-top border-success border-4">
+    <div class="container">
+      <div class="row g-4">
+        
+        <!-- Column 1: Club Info & Logo -->
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <i class="fa-solid fa-leaf text-success fa-2x me-2"></i>
+            <h5 class="fw-bold m-0 text-white">Green Tech Club</h5>
+          </div>
+          <p class="text-white-50 small mb-3">
+            Empowering students to build sustainable, zero-emission technology solutions through innovation, research, and collaborative projects.
+          </p>
+          <ul class="list-unstyled text-white-50 small mb-0">
+            <li class="mb-1"><i class="fa-solid fa-location-dot me-2 text-success"></i>Faculty of Information & Communication Technology, UTAR</li>
+            <li class="mb-1"><i class="fa-solid fa-envelope me-2 text-success"></i>info@utar.edu.my</li>
+            <li><i class="fa-solid fa-phone me-2 text-success"></i>+60 16-223 3562</li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold text-success text-uppercase mb-3">Quick Links</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none footer-link">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none footer-link">About Us</a></li>
+            <li class="mb-2"><a href="renewable_energy.html" class="text-white-50 text-decoration-none footer-link">Renewable Energy</a></li>
+            <li class="mb-2"><a href="electric_vehicle.html" class="text-white-50 text-decoration-none footer-link">Electric Vehicles</a></li>
+            <li class="mb-2"><a href="events.html" class="text-white-50 text-decoration-none footer-link">Events & Workshops</a></li>
+            <li><a href="gallery.html" class="text-white-50 text-decoration-none footer-link">Photo Gallery</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Get In Touch & Newsletter Twist -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold text-success text-uppercase mb-3">Get In Touch</h6>
+          <p class="text-white-50 small mb-3">Stay connected with us to receive updates on upcoming green tech workshops and events.</p>
+          
+          <!-- Mini Newsletter Input -->
+          <div class="input-group input-group-sm mb-3">
+            <input type="email" class="form-control bg-secondary text-white border-0" placeholder="Enter your email" aria-label="Subscriber email">
+            <button class="btn btn-success fw-semibold" type="button">Join</button>
+          </div>
+          <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25">Student Membership Open</span>
+        </div>
+
+        <!-- Column 4: Social & Community -->
+<div class="col-lg-3 col-md-6">
+  <h6 class="fw-bold text-success text-uppercase mb-3">Follow & Connect</h6>
+  <p class="text-white-50 small mb-3">Join our community on social media:</p>
+
+  <!-- Interactive Badge Links -->
+  <div class="d-flex flex-column gap-2 mb-3">
+    <a href="https://www.facebook.com/UTARnet/" target="_blank" class="btn btn-sm btn-primary d-inline-flex align-items-center justify-content-center gap-2 px-3 py-1 rounded-pill text-white text-decoration-none shadow-sm" style="background-color: #1877F2; border: none; width: fit-content;">
+      <i class="fa-brands fa-facebook"></i>
+      <span class="fw-semibold small">Follow on Facebook</span>
+    </a>
+
+    <a href="https://www.instagram.com/utarnet1/?hl=en" target="_blank" class="btn btn-sm d-inline-flex align-items-center justify-content-center gap-2 px-3 py-1 rounded-pill text-white text-decoration-none shadow-sm" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border: none; width: fit-content;">
+      <i class="fa-brands fa-instagram"></i>
+      <span class="fw-semibold small">View Instagram</span>
+    </a>
+  </div>
+
+  <!-- 1. Official Facebook Plugin Markup -->
+  <div class="fb-like my-2" 
+       data-href="https://www.facebook.com/UTARnet/" 
+       data-width="" 
+       data-layout="button_count" 
+       data-action="like" 
+       data-size="small" 
+       data-share="true">
+  </div>
+
+  <!-- 2. Official Instagram Embed Plugin Container -->
+  <div class="instagram-plugin my-2">
+    <blockquote class="instagram-media" 
+                data-instgrm-permalink="https://www.instagram.com/utarnet1/?hl=en" 
+                data-instgrm-version="14" 
+                style="display:none;">
+    </blockquote>
+  </div>
+
+  <small class="text-white-50 d-block mt-2">UCCD2323 Front-End Web Development Project</small>
+</div>
+
+      <!-- Bottom Bar -->
+      <hr class="my-4 text-secondary opacity-25">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-white-50 small">
+        <p class="mb-2 mb-md-0">&copy; 2026 Green Technology Club. All Rights Reserved.</p>
+        <p class="mb-0">Powered by <span class="text-success fw-bold">Green Tech Student Association</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/member2-api.js"></script>
+
+  <!-- Floating Trigger Button -->
+<button class="btn btn-success rounded-circle shadow-lg position-fixed bottom-0 end-0 m-4 p-3 z-3" 
+        type="button" 
+        data-bs-toggle="offcanvas" 
+        data-bs-target="#envDataSidebar" 
+        aria-controls="envDataSidebar" 
+        style="width: 60px; height: 60px;" 
+        title="Live Environmental Conditions">
+  <i class="fa-solid fa-leaf fa-xl"></i>
+</button>
+
+<!-- Offcanvas Sidebar Component -->
+<div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="envDataSidebar" aria-labelledby="envDataSidebarLabel">
+  <div class="offcanvas-header bg-success text-white">
+    <h5 class="offcanvas-title fw-bold" id="envDataSidebarLabel">
+      <i class="fa-solid fa-cloud-sun-rain me-2"></i>Live Environmental Status
+    </h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  
+  <div class="offcanvas-body p-4 bg-light">
+    <p class="text-muted small mb-4">
+      Real-time environmental data fetched via Open-Meteo RESTful API for <strong>Kuala Lumpur, Malaysia</strong>.
+    </p>
+
+    <!-- API Loading Indicator -->
+    <div id="api-loader" class="text-center py-4">
+      <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="text-muted small mt-2 mb-0">Fetching live API data...</p>
+    </div>
+
+    <!-- Container where jQuery injects API Data -->
+    <div id="api-data-container" class="d-flex flex-column gap-3" style="display: none;"></div>
+  </div>
+</div>
+</body>
+</html>

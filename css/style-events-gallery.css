@@ -1,0 +1,168 @@
+/* NAVBAR */
+.nav-style {
+    background:linear-gradient(
+            90deg,
+            rgba(3, 42, 25, 0.93),
+            rgba(3, 42, 25, 0.65),
+            rgba(3, 42, 25, 0.25)
+        );
+    padding: 15px 0;
+    backdrop-filter: blur(10px);
+}
+
+.nav-style .navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    line-height: 1.7;
+    font-size: 1.3rem;
+}
+
+
+.nav-link {
+    color: white !important;
+    margin-left: 14px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-style .nav-link:hover,
+.nav-style .nav-link.active {
+    color: #8ce89a !important;
+}
+/* box design */
+.box-style{
+    background-color:rgba(248, 244, 244, 0.792);
+    padding:20px;
+    border-radius:15px;
+}
+/* h1 */
+h1{
+    position: relative;
+    color:rgb(255,255,255,0.9);
+    text-align: center;
+    font-weight: bold;
+    font-size: 400%;
+    display: inline-block;
+    border-left: 2px solid rgb(255, 255, 255,0.5); 
+    border-bottom: 2px solid rgb(255, 255, 255,0.5);
+    padding-left: 5px;
+    padding-bottom: 0px;
+    padding-right:20px;
+}
+h1::before {
+    content: '+';
+    position: absolute;
+    left: -9px;
+    top: -10.1px;
+    color: rgb(255, 255, 255,0.5);              
+    font-size: 30px;
+    font-family: Arial, sans-serif; 
+}
+h1::after {
+    content: '+';
+    position: absolute;
+    right: -5px;
+    bottom: -19px;
+    color: rgb(255, 255, 255,0.5);
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+}
+/* background */
+body {
+    background-image: url(image/events/banner.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #ffffff;
+    margin-top:100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* reegister style */
+.reg-style{
+    background-color: rgba(80, 80, 80, 0.819);
+}
+.reg-style .card-header{
+    background-color: rgb(20, 20, 20);
+}
+.reg-style .btn{
+    background-color:#6f6d6d;
+}
+.reg-style .btn:hover{
+    background-color: #000000;
+}
+
+/* image */
+.cardG {
+    margin-block: 30px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+/* footer */
+.footer {
+    background: #052719;
+    color: white;
+    padding: 50px 0;
+}
+
+.footer h5 {
+    font-weight: 700;
+}
+
+.footer h5 i {
+    color: #8ce89a;
+}
+
+.footer p {
+    color: #a7c7b0;
+    margin-bottom: 5px;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.card hr {
+    border-top: 1px solid #dee2e6;
+}
+
+.footer-link {
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #198754 !important;
+}
+
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: rgba(248, 244, 244, 0.792);
+        position: absolute;
+        top: 100%;
+        left:0;
+        width: 100%;
+        padding: 15px 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .navbar-nav .nav-link {
+        color: #080808 !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #505050;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #030303 !important;
+        font-weight: bold;
+    }
+}
