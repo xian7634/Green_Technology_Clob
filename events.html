@@ -5,14 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Technology Club - Events</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="style-events-gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg fixed-top nav-style">
         <div class="container">
@@ -29,10 +25,10 @@
                         <a href="about.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Renewable Energy</a>
+                        <a href="renewable_energy.html" class="nav-link">Renewable Energy</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Electric Vehicles</a>
+                        <a href="electric_vehivle" class="nav-link">Electric Vehicles</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Smart Cities</a>
@@ -43,14 +39,15 @@
                     <li class="nav-item">
                         <a href="gallery.html" class="nav-link">Gallery</a>
                     </li>
-
                 </ul>
-
             </div>
         </div>
     </nav>
     <div class="container ">
-        <h1>Upcoming Events</h1>
+        <h1>Upcoming
+            <p>Events</p>
+        </h1>
+        <p class="desc">Join us to explore sustainable practices through interactive workshops, campaigns, and competitions.</p>
     </div>
     <section class="py-5 ">
         <div class="container">
@@ -124,19 +121,17 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="card shadow-lg border-0">
-                        <div class="card-header  text-white text-center py-3">
-                            <h3 class="mb-0">Event Registration</h3>
-                        </div>
-                        <div class="card-body p-4">
+                    <div class="text-center card-header mb-4"><b>Event Registration</b></div>
+                    <div class="card shadow-lg rounded-4 border-0">
+                        <div class="card-body  p-4">
                             <form>
                                 <div class="mb-3">
-                                    <label for="studentName" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="studentName" required>
+                                    <label for="studentName" class="form-label fw-semibold">Full Name</label>
+                                    <input type="text" class="form-control form-control-lg bg-light py-2" id="studentName" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="eventSelect" class="form-label">Select Your Event</label>
-                                    <select class="form-select" id="eventSelect" required>
+                                    <label for="eventSelect" class="form-label fw-semibold">Select Your Event</label>
+                                    <select class="form-select form-select-lg bg-light py-2" id="eventSelect" required>
                                         <option value="" selected disabled>Choose an event...</option>
                                         <option value="workshop">Sustainable Housing Workshop</option>
                                         <option value="campaign">Go Green Campaign</option>
@@ -144,7 +139,7 @@
                                     </select>
                                 </div>
                                 <button onclick="storeData(event)" type="submit"
-                                    class="btn text-white w-100 btn-lg mt-3">Submit
+                                    class="btn text-black fw-semibold w-50 py-3 mt-3 fs-5">Submit
                                     Registration</button>
                             </form>
                         </div>
