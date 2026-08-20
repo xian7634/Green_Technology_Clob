@@ -1,0 +1,844 @@
+/* =========================GENERAL========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #1f2937;
+    background: #ffffff;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================NAVBAR========================= */
+
+.navbar {
+    background: rgba(4, 38, 24, 0.94);
+    padding: 15px 0;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+}
+
+.navbar-brand i {
+    color: #8ce89a;
+}
+
+.nav-link {
+    color: white !important;
+    margin-left: 14px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #8ce89a !important;
+}
+
+
+/* =========================HERO========================= */
+
+.hero {
+    min-height: 100vh;
+
+    background-image:
+        url("../image/background.avif");
+
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 42, 25, 0.93),
+            rgba(3, 42, 25, 0.65),
+            rgba(3, 42, 25, 0.25)
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.hero-label {
+    color: #9af0a6;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    display: inline-block;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    max-width: 800px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #8ce89a;
+}
+
+.hero p {
+    max-width: 650px;
+
+    color: #e0f4e5;
+
+    font-size: 1.1rem;
+
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* =========================BUTTONS========================= */
+
+.btn-green {
+    background: #8ce89a;
+
+    color: #07391f;
+
+    border-radius: 50px;
+
+    padding: 13px 25px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-green:hover {
+    background: white;
+
+    color: #07391f;
+
+    transform: translateY(-3px);
+}
+
+.btn-dark-green {
+    background: #0b5d36;
+
+    color: white;
+
+    border-radius: 50px;
+
+    padding: 12px 25px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-dark-green:hover {
+    background: #06351f;
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+.btn-outline-light {
+    border-radius: 50px;
+
+    padding: 12px 25px;
+}
+
+
+/* =========================SECTIONS========================= */
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-label {
+    color: #13834c;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+}
+
+.section-heading {
+    margin-bottom: 50px;
+}
+
+.section-heading h2,
+.section-padding h2 {
+    color: #103c28;
+
+    font-size: 2.6rem;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+}
+
+.section-heading p {
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #64748b;
+}
+
+
+/* =========================IMAGE FRAME========================= */
+
+.image-frame {
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    box-shadow:
+        0 20px 50px rgba(0, 60, 30, 0.12);
+}
+
+.image-frame img {
+    width: 100%;
+
+    height: 480px;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.image-frame:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================EXPLORE SECTION========================= */
+
+.explore-section {
+    background: #f4faf5;
+}
+
+
+/* =========================TECHNOLOGY CARDS========================= */
+
+.technology-card {
+    background: white;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    border: 1px solid #e1eee4;
+
+    height: 100%;
+
+    transition: 0.35s;
+
+    box-shadow:
+        0 5px 20px rgba(0, 50, 25, 0.04);
+}
+
+.technology-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 70, 30, 0.13);
+}
+
+.card-image {
+    height: 210px;
+
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.technology-card:hover .card-image img {
+    transform: scale(1.08);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 15px;
+
+    background: #e7f8eb;
+
+    color: #0b5d36;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1.4rem;
+
+    margin-bottom: 17px;
+}
+
+.card-content h3 {
+    color: #103c28;
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.card-content p {
+    color: #64748b;
+
+    font-size: 0.9rem;
+
+    margin: 0;
+}
+
+
+/* =========================FEATURE SECTION========================= */
+
+.feature-section {
+    padding: 100px 0;
+
+    background: white;
+}
+
+.feature-image {
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 60, 30, 0.12);
+}
+
+
+/* =========================CTA========================= */
+
+.cta-section {
+    padding: 100px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #06351f,
+            #13834c
+        );
+
+    color: white;
+}
+
+.cta-section h2 {
+    color: white;
+
+    font-size: 2.7rem;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    color: #d8f3df;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================ABOUT HERO========================= */
+
+.about-hero {
+    min-height: 55vh;
+
+    padding: 150px 0 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 42, 25, 0.85),
+            rgba(3, 42, 25, 0.55),
+            rgba(3, 42, 25, 0.30)
+        ),
+        url("../image/forest.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.about-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    max-width: 850px;
+
+    margin-bottom: 20px;
+}
+
+.about-hero h1 span {
+    color: #8ce89a;
+}
+
+.about-hero p {
+    color: #d8f3df;
+
+    max-width: 650px;
+
+    font-size: 1.05rem;
+}
+
+.about-hero .section-label {
+    color: #9af0a6;
+}
+
+
+/* =========================SOFT SECTION========================= */
+
+.soft-section {
+    background: #f4faf5;
+}
+
+
+/* =========================INFO CARDS========================= */
+
+.info-card {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 40px;
+
+    height: 100%;
+
+    border: 1px solid #e1eee4;
+
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 35px rgba(0, 70, 30, 0.1);
+}
+
+.info-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 16px;
+
+    background: #e7f8eb;
+
+    color: #0b5d36;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1.5rem;
+
+    margin-bottom: 20px;
+}
+
+.info-card h3 {
+    color: #103c28;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: #64748b;
+
+    margin: 0;
+}
+
+
+/* =========================OBJECTIVES========================= */
+
+.objective-card {
+    text-align: center;
+
+    padding: 30px 25px;
+
+    border-radius: 20px;
+
+    border: 1px solid #e1eee4;
+
+    height: 100%;
+
+    transition: 0.3s;
+}
+
+.objective-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 30px rgba(0, 70, 30, 0.1);
+}
+
+.objective-card > i {
+    font-size: 2rem;
+
+    color: #0b5d36;
+
+    margin-bottom: 18px;
+}
+
+.objective-card h3 {
+    color: #103c28;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.objective-card p {
+    color: #64748b;
+
+    font-size: 0.9rem;
+
+    margin: 0;
+}
+
+
+/* =========================ACTIVITIES========================= */
+
+.activity-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    height: 100%;
+
+    border: 1px solid #e1eee4;
+
+    transition: 0.3s;
+}
+
+.activity-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 30px rgba(0, 70, 30, 0.1);
+}
+
+.activity-card > i {
+    font-size: 2rem;
+
+    color: #0b5d36;
+
+    margin-bottom: 18px;
+}
+
+.activity-card h3 {
+    color: #103c28;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.activity-card p {
+    color: #64748b;
+
+    font-size: 0.9rem;
+
+    margin: 0;
+}
+
+
+/* =========================FOOTER========================= */
+
+.footer {
+    background: #052719;
+    color: white;
+    padding: 50px 0;
+}
+
+.footer h5 {
+    font-weight: 700;
+}
+
+.footer h5 i {
+    color: #8ce89a;
+}
+
+.footer p {
+    color: #a7c7b0;
+    margin-bottom: 5px;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.card hr {
+    border-top: 1px solid #dee2e6;
+}
+
+.footer-link {
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #198754 !important;
+}
+
+
+/* =========================RESPONSIVE========================= */
+
+@media (max-width: 991px) {
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .hero {
+        min-height: 90vh;
+    }
+
+    .section-padding {
+        padding: 80px 0;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .hero {
+        min-height: 85vh;
+
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .section-heading h2,
+    .section-padding h2 {
+        font-size: 2.1rem;
+    }
+
+    .image-frame img {
+        height: 350px;
+    }
+
+    .feature-image {
+        height: 350px;
+    }
+
+    .about-hero {
+        padding-top: 130px;
+    }
+
+    .about-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .cta-section h2 {
+        font-size: 2.1rem;
+    }
+
+}
+
+/* =========================COOKIE BANNER========================= */
+
+.cookie-banner {
+    position: fixed;
+
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+
+    background: white;
+
+    border: 1px solid #dcebe0;
+
+    border-radius: 18px;
+
+    padding: 20px 25px;
+
+    box-shadow: 0 10px 35px rgba(0, 50, 25, 0.18);
+
+    z-index: 9999;
+}
+
+.cookie-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-content h5 {
+    color: #103c28;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.cookie-content h5 i {
+    color: #0b5d36;
+
+    margin-right: 8px;
+}
+
+.cookie-content p {
+    color: #64748b;
+
+    font-size: 0.9rem;
+
+    margin: 0;
+}
+
+.cookie-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+/* Mobile */
+
+@media (max-width: 767px) {
+
+    .cookie-content {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .cookie-buttons {
+        width: 100%;
+    }
+
+    .cookie-buttons .btn {
+        flex: 1;
+    }
+
+}
