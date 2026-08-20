@@ -1,0 +1,219 @@
+/* =========================SMART CITIES HERO========================= */
+
+.smart_cities-hero {
+    min-height: 55vh;
+
+    padding: 150px 0 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 42, 25, 0.85),
+            rgba(3, 42, 25, 0.55),
+            rgba(3, 42, 25, 0.30)
+        ),
+        url("../image/HR_smart_cities.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.smart_cities-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    max-width: 850px;
+
+    margin-bottom: 20px;
+}
+
+.smart_cities-hero h1 span {
+    color: #8ce89a;
+}
+
+.smart_cities-hero p {
+    color: #d8f3df;
+
+    max-width: 650px;
+
+    font-size: 1.05rem;
+}
+
+.smart_cities-hero .section-label {
+    color: #9af0a6;
+}
+
+/* =========================SUSTAINABLE TECH HERO========================= */
+
+.sustainable_tech-hero {
+    min-height: 55vh;
+
+    padding: 150px 0 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 42, 25, 0.85),
+            rgba(3, 42, 25, 0.55),
+            rgba(3, 42, 25, 0.30)
+        ),
+        url("../image/HR_sustainable_technologies.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.sustainable_tech-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    max-width: 850px;
+
+    margin-bottom: 20px;
+}
+
+.sustainable_tech-hero h1 span {
+    color: #8ce89a;
+}
+
+.sustainable_tech-hero p {
+    color: #d8f3df;
+
+    max-width: 650px;
+
+    font-size: 1.05rem;
+}
+
+.sustainable_tech-hero .section-label {
+    color: #9af0a6;
+}
+
+/* =========================EVENTS HERO========================= */
+
+.events-hero {
+    min-height: 55vh;
+
+    padding: 150px 0 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 42, 25, 0.85),
+            rgba(3, 42, 25, 0.55),
+            rgba(3, 42, 25, 0.30)
+        ),
+        url("../image/HR_events.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.events-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    max-width: 850px;
+
+    margin-bottom: 20px;
+}
+
+.events-hero h1 span {
+    color: #8ce89a;
+}
+
+.events-hero p {
+    color: #d8f3df;
+
+    max-width: 650px;
+
+    font-size: 1.05rem;
+}
+
+.events-hero .section-label {
+    color: #9af0a6;
+}
+
+/* =========================GALLERY HERO========================= */
+
+.gallery-hero {
+    min-height: 55vh;
+
+    padding: 150px 0 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 42, 25, 0.85),
+            rgba(3, 42, 25, 0.55),
+            rgba(3, 42, 25, 0.30)
+        ),
+        url("../image/HR_gallery.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.gallery-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    max-width: 850px;
+
+    margin-bottom: 20px;
+}
+
+.gallery-hero h1 span {
+    color: #8ce89a;
+}
+
+.gallery-hero p {
+    color: #d8f3df;
+
+    max-width: 650px;
+
+    font-size: 1.05rem;
+}
+
+.gallery-hero .section-label {
+    color: #9af0a6;
+}
