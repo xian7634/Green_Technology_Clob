@@ -22,22 +22,85 @@ main {
 }
 
 /* --- Hero Banner Sections --- */
-.hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-              url('image/Renewable-energy-background') center/cover no-repeat;
+.hero-energy {
+  min-height: 55vh;
+  padding: 150px 0 80px;
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 42, 25, 0.85),
+      rgba(3, 42, 25, 0.55),
+      rgba(3, 42, 25, 0.30)
+    ),
+    url('../image/Renewable-energy-background.png'); 
+    
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   color: #ffffff;
-  padding: 90px 0;
   border-bottom: 4px solid #198754;
+}
+
+.hero-energy h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 850px;
+  margin-top: 0;         
+  margin-bottom: 20px;
+  text-transform: uppercase; 
+}
+
+.hero-energy p {
+  color: #d8f3df;
+  max-width: 650px;
+  font-size: 1.05rem;
+  margin-bottom: 0;
 }
 
 .hero-ev {
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-              url('image/EV-background.png') center/cover no-repeat;
+  min-height: 55vh;
+  padding: 150px 0 80px;
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 42, 25, 0.85),
+      rgba(3, 42, 25, 0.55),
+      rgba(3, 42, 25, 0.30)
+    ),
+    url('../image/EV-background.png');
+    
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   color: #ffffff;
-  padding: 90px 0;
   border-bottom: 4px solid #198754;
 }
 
+.hero-ev h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 850px;
+  margin-top: 0;         
+  margin-bottom: 20px;
+  text-transform: uppercase; 
+}
+
+.hero-ev p {
+  color: #d8f3df;
+  max-width: 650px;
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
 /* --- Card Components & Interactive Elements --- */
 .energy-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -73,35 +136,67 @@ main {
 
 /* --- Navigation & Links --- */
 .navbar {
-    background: rgba(4, 38, 24, 0.94) !important;
-    backdrop-filter: blur(10px);                  
-    -webkit-backdrop-filter: blur(10px);          
-    padding: 17px 0;
-    font-family: Arial, Helvetica, sans-serif;
-    position: sticky;                            
+    background-color: #003b2b !important;
+    width: 100%;
+    height: 72px;
+    padding: 0 !important;
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+/* Forces the strict gap alignment you noticed */
+.navbar .container {
+    width: 100%;
+    max-width: 980px !important;
+    margin: 0 auto;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
 .navbar-brand {
-    font-size: 1.25rem;
+    display: flex !important;
+    align-items: center;
+    color: #ffffff !important;
+    font-size: 18px !important;
     font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap;
+}
+
+.navbar-brand .bi-leaf-fill {
+    font-size: 20px;
+    margin-right: 7px;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto !important;
+    gap: 22px;
+}
+
+.navbar-nav .nav-link {
     color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 8px 0 !important;
+    margin: 0 !important;
+    white-space: nowrap;
 }
 
-.navbar-brand i {
-    color: #8ce89a !important;
+.navbar-nav .nav-link:hover {
+    color: #8fd694 !important;
 }
 
-.nav-link {
-    color: #ffffff !important;
-    margin-left: 14px;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.nav-link:hover,
-.nav-link.active {
+.navbar-nav .nav-link.active {
     color: #8ce89a !important;
 }
 
