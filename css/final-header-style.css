@@ -24,7 +24,7 @@ main {
 /* --- Hero Banner Sections --- */
 .hero-section {
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-              url('images/Renewable-energy-background') center/cover no-repeat;
+              url('image/Renewable-energy-background') center/cover no-repeat;
   color: #ffffff;
   padding: 90px 0;
   border-bottom: 4px solid #198754;
@@ -32,7 +32,7 @@ main {
 
 .hero-ev {
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-              url('images/EV-background.png') center/cover no-repeat;
+              url('image/EV-background.png') center/cover no-repeat;
   color: #ffffff;
   padding: 90px 0;
   border-bottom: 4px solid #198754;
