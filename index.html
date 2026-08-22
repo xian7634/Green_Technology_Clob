@@ -648,20 +648,22 @@
           Stay connected with us to receive updates on upcoming green tech workshops and events.
         </p>
 
-        <!-- Mini Newsletter Input -->
-        <div class="input-group input-group-sm mb-3">
-          <input
-            type="email"
-            class="form-control bg-secondary text-white border-0"
-            placeholder="Enter your email"
-            aria-label="Subscriber email">
+        <!-- Mini Newsletter Form -->
+        <form onsubmit="handleJoin(event)">
+          <div class="input-group input-group-sm mb-3">
+            <input
+              type="email"
+              id="newsletterEmail"
+              class="form-control bg-secondary text-white border-0"
+              placeholder="Enter your email"
+              aria-label="Subscriber email"
+              required>
 
-          <button
-            class="btn btn-success fw-semibold"
-            type="button">
-            Join
-          </button>
-        </div>
+            <button class="btn btn-success fw-semibold" type="submit">
+              Join
+            </button>
+          </div>
+        </form>
 
         <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25">
           Student Membership Open
@@ -762,5 +764,43 @@
 
 </div>
 
+    </script>
+
+<!-- Success Popup Modal -->
+  <div class="modal fade" id="joinSuccessModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white border-success">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center py-4">
+          <i class="bi bi-check-circle-fill text-success fs-1 mb-3 d-block"></i>
+          <h5 class="fw-bold mb-2">Welcome!</h5>
+          <p class="mb-0 text-white-50">You have successfully joined the Green Tech Club!</p>
+        </div>
+        <div class="modal-footer border-0 pt-0 justify-content-center">
+          <button type="button" class="btn btn-success px-4" data-bs-dismiss="modal">Great!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (Ensure Bootstrap JS is loaded for modal functionality) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Newsletter Handler Script -->
+  <script>
+    function handleJoin(event) {
+      event.preventDefault();
+      
+      // Trigger Bootstrap modal
+      const modal = new bootstrap.Modal(document.getElementById('joinSuccessModal'));
+      modal.show();
+      
+      // Reset input field
+      document.getElementById('newsletterEmail').value = '';
+    }
+  </script>
+    
 </body>
 </html>
