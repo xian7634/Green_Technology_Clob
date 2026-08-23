@@ -1,9 +1,3 @@
-/* =========================================================
-   Member 2: jQuery RESTful API Integration
-   Fetches real-time environmental data from Open-Meteo API
-   and renders inside the Offcanvas Sidebar.
-   ========================================================= */
-
 $(document).ready(function () {
   // Open-Meteo RESTful API Endpoint (Kuala Lumpur, Malaysia)
   const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current_weather=true";
