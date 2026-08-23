@@ -5,52 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Technology Club - Events</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="style-events-gallery.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style-events-gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top nav-style">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
         <div class="container">
-            <a href="index.html" class="navbar-brand fw-bold">GreenTech Club</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-leaf-fill"></i>
+                Green Tech Club
+            </a>
+
+            <!-- Mobile Menu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+
+            <!-- Navigation -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+
                 <ul class="navbar-nav ms-auto">
+
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
+                        <a class="nav-link" href="about.html">
+                            About Us
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="" class="nav-link">Renewable Energy</a>
+                        <a class="nav-link" href="renewable_energy.html">
+                            Renewable Energy
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Electric Vehicles</a>
+                        <a class="nav-link" href="electric_vehicle.html">
+                            Electric Vehicles
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Smart Cities</a>
+                        <a class="nav-link" href="smart_cities.html">
+                            Smart Cities
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="events.html" class="nav-link active">Events</a>
+                        <a class="nav-link" href="sustainable_technologies.html">
+                            Sustainable Tech
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="gallery.html" class="nav-link">Gallery</a>
+                        <a class="nav-link active" href="events.html">
+                            Events
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">
+                            Gallery
+                        </a>
                     </li>
 
                 </ul>
 
             </div>
+
         </div>
+
     </nav>
     <div class="container ">
-        <h1>Upcoming Events</h1>
+        <h1>Upcoming
+            <p>Events</p>
+        </h1>
+        <p class="desc">Join us to explore sustainable practices through interactive workshops, campaigns, and
+            competitions.</p>
     </div>
     <section class="py-5 ">
         <div class="container">
@@ -99,7 +144,8 @@
             </div>
             <div class="row align-items-center mb-5 box-style">
                 <div class="col-md-7 mb-4 mb-md-0">
-                    <img src="image/events/competition.jpg" class="img-fluid rounded" alt="Green Innovation Competition">
+                    <img src="image/events/competition.jpg" class="img-fluid rounded"
+                        alt="Green Innovation Competition">
                 </div>
                 <div class="col-md-5">
                     <div class="card shadow-sm border-0">
@@ -124,19 +170,18 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="card shadow-lg border-0">
-                        <div class="card-header  text-white text-center py-3">
-                            <h3 class="mb-0">Event Registration</h3>
-                        </div>
-                        <div class="card-body p-4">
+                    <div class="text-center card-header mb-4"><b>Event Registration</b></div>
+                    <div class="card shadow-lg rounded-4 border-0">
+                        <div class="card-body  p-4">
                             <form>
                                 <div class="mb-3">
-                                    <label for="studentName" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="studentName" required>
+                                    <label for="studentName" class="form-label fw-semibold">Full Name</label>
+                                    <input type="text" class="form-control form-control-lg bg-light py-2"
+                                        id="studentName" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="eventSelect" class="form-label">Select Your Event</label>
-                                    <select class="form-select" id="eventSelect" required>
+                                    <label for="eventSelect" class="form-label fw-semibold">Select Your Event</label>
+                                    <select class="form-select form-select-lg bg-light py-2" id="eventSelect" required>
                                         <option value="" selected disabled>Choose an event...</option>
                                         <option value="workshop">Sustainable Housing Workshop</option>
                                         <option value="campaign">Go Green Campaign</option>
@@ -144,7 +189,7 @@
                                     </select>
                                 </div>
                                 <button onclick="storeData(event)" type="submit"
-                                    class="btn text-white w-100 btn-lg mt-3">Submit
+                                    class="btn text-black fw-semibold w-50 py-3 mt-3 fs-5">Submit
                                     Registration</button>
                             </form>
                         </div>
@@ -316,7 +361,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="script-events.js"></script>
+    <script src="javaScript/script-events.js"></script>
 </body>
 
 </html>
