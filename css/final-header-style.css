@@ -269,3 +269,26 @@ i.bi, .bi, [class^="bi-"], [class*=" bi-"] {
     color: #042618;
     transform: scale(1.1);
 }
+
+/* ================MOBILE================ */
+@media (max-width: 991px) {
+
+    .navbar {
+        height: auto;
+        min-height: 72px;
+    }
+
+    .navbar .container {
+        padding: 0 20px !important;
+    }
+
+    .navbar-nav {
+        gap: 0;
+        margin-top: 10px !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 0 !important;
+    }
+
+}

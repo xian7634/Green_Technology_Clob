@@ -246,29 +246,26 @@ footer {
     color: #198754 !important;
 }
 
+/* ================MOBILE================ */
+@media (max-width: 991px) {
 
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        background-color: rgba(248, 244, 244, 0.792);
-        position: absolute;
-        top: 100%;
-        left:0;
-        width: 100%;
-        padding: 15px 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+    .navbar {
+        height: auto;
+        min-height: 72px;
+    }
+
+    .navbar .container {
+        padding: 0 20px !important;
+    }
+
+    .navbar-nav {
+        gap: 0;
+        margin-top: 10px !important;
     }
 
     .navbar-nav .nav-link {
-        color: #080808 !important;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #505050;
+        padding: 10px 0 !important;
     }
 
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-        color: #030303 !important;
-        font-weight: bold;
-    }
 }
+
