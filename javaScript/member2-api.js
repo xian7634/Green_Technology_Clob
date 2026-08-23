@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // Open-Meteo RESTful API Endpoint (Kuala Lumpur, Malaysia)
+  // Open-Meteo RESTful API (Kuala Lumpur, Malaysia)
   const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current_weather=true";
 
   $.ajax({
@@ -12,7 +12,7 @@ $(document).ready(function () {
       const windSpeed = weather.windspeed;
       const isDaytime = weather.is_day === 1 ? "Daytime (Solar Output High)" : "Nighttime (Grid Support Active)";
 
-      // Vertical card list for the sidebar
+      // sidebar
       const apiHtml = `
         <div class="card border-0 shadow-sm p-3 bg-white rounded-3">
           <div class="d-flex align-items-center">
